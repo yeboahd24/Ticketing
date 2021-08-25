@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>home</title>
+  
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lora-font.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/raleway-font.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body class="form-v3">
+    <div class="page-content">
+      <div class="form-v3-content">
+        <form class="form-detail" action="{% url 'index' %}" method="post" id="myform">
+          {% csrf_token %}
+          <h3
+            style="
+              padding: 8px;
+              text-align: center;
+              border: 1px solid whitesmoke;
+              border-left: 5px solid dodgerblue;
+              border-right: 5px solid dodgerblue;
+            "
+          >
+            Welcome <br />
+            To <br />
+            Stadium Tickets Booking
+          </h3>
+          <p class="text" style="text-align: center">
+            Purchase a ticket from us and watch all fixtures for
+            <b style="font-weight: bolder">this season.</b>
+          </p>
+          <div class="form-group">
+            <div class="form-row form-row-1">
+              <label for="full-name">FULL NAME::</label>
+              <input
+                type="text"
+                name="full_name"
+                id="full-name"
+                class="input-text"
+                required
+              />
+            </div>
+            <div class="form-row form-row-1">
+              <label for="your-email">YOUR EMAIL:</label>
+              <input
+                type="text"
+                name="email"
+                id="your-email"
+                class="input-text"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group form-group-1">
+            <div class="form-row form-row-2">
+              <label for="person">PERSON:</label>
+              <input
+                type="number"
+                id="person"
+                class="input-text"
+                name="person"
+                value="1"
+                title="Qty"
+                size="4"
+                pattern="[0-9]*"
+                inputmode="numeric"
+              />
+            </div>
+            <div class="form-row form-row-3">
+              <label for="date">DATE:</label>
+              <input type="date" name="date" class="date" id="date" />
+            </div>
+            <div class="form-row form-row-4">
+              <label for="ticket">TICKET TYPE:</label>
+              <select name="position" id="ticket" class="input-text">
+                <option value="vip">VIP</option>
+                <option value="luxury">Luxury</option>
+                <option value="basic">Basic</option>
+                <option value="normal">Normal</option>
+              </select>
+              <span class="select-btn">
+                <i class="zmdi zmdi-chevron-down"></i>
+              </span>
+            </div>
+          </div>
+          <div class="special">
+            <span> Ghc 10.00</span>
+            <p></p>
+
+            <br>
+          </div>
+          <div class="form-checkbox">
+            <label class="container"
+              ><p>
+                By booking, you agree to the
+                <a href="#" class="text">Terms of Service</a>
+              </p>
+              <input type="checkbox" name="checkbox" />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="form-row-last">
+            <input
+              type="submit"
+              name="register"
+              class="register"
+              value="BUY NOW"
+            />
+          </div>
+        </form>
+        <div class="form-right">
+          <div class="form-images-1">
+            <img src="{% static 'images/stadium.JPG' %}" alt="form-v3-1" width="450px" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript">
+      $("#date").datepicker({
+        dateFormat: "yy - MM - DD",
+        showOn: "both",
+        buttonText: '<i class="zmdi zmdi-calendar-alt"></i>',
+      });
+    </script>
+  </body>
+</html>
