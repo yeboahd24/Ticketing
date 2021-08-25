@@ -1,0 +1,2 @@
+# Ticketing
+Django Ticketing app
